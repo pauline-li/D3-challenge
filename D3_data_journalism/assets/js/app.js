@@ -71,13 +71,18 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     .attr("opacity", ".9");
 
     //============Add Test to Circle
-    var circlesText = chartGroup.selectAll("circle")
+    // https://www.freecodecamp.org/forum/t/d3-add-labels-to-scatter-plot-circles/222646
+    var circleText = chartGroup.selectAll()
+    .data(censusData)
+    .enter()
     .append("text")
     .text(d => d.abbr)
-    .attr("text-anchor","middle")
-    .attr("style","stroke:white;" )
-    .attr("cx", d => xLinearScale(d.poverty)) // look at this data point / hair_lenght property and apply return that x coordinate
-    .attr("cy", d => yLinearScale(d.healthcare)) ;
+    .attr("x", d => xLinearScale(d.poverty)) // look at this data point / poverty property and apply return that x coordinate
+    .attr("y", d => yLinearScale(d.healthcare))
+    .classed("stateText", true)
+    .attr("font-size","10");
+    // .classed("stateText", true)
+    // .attr("fill", "black");
 
     console.log(censusData); //*************** */
 
