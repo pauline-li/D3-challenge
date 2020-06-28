@@ -12,7 +12,9 @@ html {
 body {
   /* Padding bottom by footer height */
   padding-bottom: 80px;
+  
 }
+h1{color:#603F83FF;}
 
 #footer {
   position: absolute;
