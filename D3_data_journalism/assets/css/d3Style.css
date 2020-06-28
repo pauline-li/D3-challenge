@@ -27,12 +27,13 @@
 .stateText {
   font-family: sans-serif;
   /*fill: #fff;*/
-  fill: black;
+  fill: #FAD0C9FF;
   text-anchor: middle;
 }
 
 .stateCircle {
-  fill: #89bdd3;
+ 
+  fill: #6E6E6DFF;
   stroke: #e3e3e3;
 }
 
@@ -51,6 +52,11 @@
   text-transform: capitalize;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
+}
+
+.axisText {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 /* Mobile Rules */
