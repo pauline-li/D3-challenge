@@ -14,7 +14,13 @@ body {
   padding-bottom: 80px;
   
 }
-h1{color:#603F83FF;}
+h1{
+  color:#323535;
+  /* height: 10px;
+  padding-top: 10px; */
+  text-align: center;
+
+}
 
 #footer {
   position: absolute;
