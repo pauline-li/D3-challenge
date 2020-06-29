@@ -115,7 +115,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
       .attr("y", 0 - margin.left + 40) // subtracting margin left and add 40, 40 pixels away from the edge
       .attr("x", 0 - (height / 2))
       .attr("dy", "1em") // moving the text by 1em...centering
-    //   .attr("class", "axisText") // class is axisText
+        .attr("class", "axisText") // class is axisText
       .text("Lack Healthcare (%)");
 
     chartGroup.append("text")
