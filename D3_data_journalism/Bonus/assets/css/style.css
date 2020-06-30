@@ -17,9 +17,15 @@ body {
 h1{
   color:#323535;
   /* height: 10px;
-  padding-top: 10px; */
+  padding-top: 10px;*/
   text-align: center;
 
+}
+
+#scatter {
+ padding: 0px;
+ margin: 0px;
+  
 }
 
 #footer {

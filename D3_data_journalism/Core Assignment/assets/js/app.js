@@ -1,4 +1,3 @@
-
 var svgWidth = 960;
 var svgHeight = 500;
 
@@ -12,7 +11,7 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins.
+// Create an SVG wrapper, append an SVG group that will hold the chart, and shift the latter by left and top margins.
 var svg = d3.select("#scatter") // insert chart to tag id "scatter"
   .append("svg") // append svg element
   .attr("width", svgWidth)
@@ -48,9 +47,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
               
               
           ])  
-    // x LINEAR scale for scatter plots..where data coming in
-    //   .domain([8, d3.max(censusData, d => d.poverty)])  ***work
-      .range([0, width]);
+    .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
       .domain(
@@ -60,8 +57,6 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
         
         
         ]) 
-    //   .domain(d3.extent(censusData, d => d.healthcare)) //y LINEAR scale for scatter plots
-    //   .domain([0, d3.max(censusData, d => d.healthcare)]   ***work
       .range([height, 0]);
 
     // Step 3: Create axis functions
@@ -69,7 +64,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
 
-    // Step 4: Append Axes to the chart
+    // Step 4: Append axes to the chart
     // ==============================
     chartGroup.append("g")
       .attr("transform", `translate(0, ${height})`)
@@ -90,7 +85,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     .attr("class","stateCircle") //circle color styling on d3Style.css, class .stateCircle
     .attr("opacity", ".9");
 
-    //============Add Test to Circle
+    //============Add text to circle
     // https://www.freecodecamp.org/forum/t/d3-add-labels-to-scatter-plot-circles/222646
     var circleText = chartGroup.selectAll()
     .data(censusData)
@@ -102,31 +97,7 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
     .attr("class","stateText") // .stateText class in d3Style.css stying for circle text
     .attr("font-size","9");
   
-
-    console.log(censusData); //*************** */
-
-    // Step 6: Initialize tool tip
-    // ==============================
-    // var toolTip = d3.tip()
-    //   .attr("class", "tooltip")
-    //   .offset([80, -60]) // so we don't want to interfere with our mouse when mouseover
-    //   .html(function(d) { // use data bound and return the below string
-    //     return (`${d.abbr}<br>Hair length: ${d.poverty}<br>Hits: ${d.healthcare}`);
-    //   });
-
-    // Step 7: Create tooltip in the chart
-    // ==============================
-    // chartGroup.call(toolTip);
-
-    // // Step 8: Create event listeners to display and hide the tooltip
-    // // ==============================
-    // circlesGroup.on("click", function(data) { // when click run this anonymous function
-    //   toolTip.show(data, this); // make toolTip to show
-    // })
-    //   // onmouseout event
-    //   .on("mouseout", function(data, index) { // event listener
-    //     toolTip.hide(data); // when mouse out event hide tooltop
-    //   });
+    console.log(censusData); 
 
     // Create axes labels
     chartGroup.append("text") // svg text element
@@ -144,4 +115,3 @@ d3.csv("assets/data/data.csv").then(function(censusData) {
   }).catch(function(error) {
     console.log(error);
   });
-
