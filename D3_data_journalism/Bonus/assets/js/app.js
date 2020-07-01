@@ -51,7 +51,6 @@ function yScale(censusData, chosenYAxis) {
   return yLinearScale;
 }
 
-
 // for updating xAxis var upon click on X axis label
 function renderXAxes(newXScale, xAxis) {
   var bottomAxis = d3.axisBottom(newXScale);
@@ -117,10 +116,10 @@ function updateToolTip(chosenXAxis,chosenYAxis, circlesGroup) {
     .offset([80, -60])
     .html(function (d) {
           if (chosenXAxis === "poverty") {
-            return (`${d.state}<br>${label} ${d[chosenXAxis]}%<br>${ylabel} ${d[chosenYAxis]}%`); 
+            return (`${d.state}<br>${label} ${d[chosenXAxis]}%<br>${ylabel} ${d[chosenYAxis]}%`); // format poverty prec
           }
           else
-          return (`${d.state}<br>${label} ${d[chosenXAxis]}<br>${ylabel} ${d[chosenYAxis]}%`); //============add chosen
+          return (`${d.state}<br>${label} ${d[chosenXAxis]}<br>${ylabel} ${d[chosenYAxis]}%`); // format y axis perc
     });
    
   //function chosen x and y tooltip
